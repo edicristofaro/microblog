@@ -1,4 +1,4 @@
-#!/home/ed/flask/bin/python2
+#!/home/ed/microblog/flask/bin/python2
 
 # -*- coding: utf-8 -*-
 import re
