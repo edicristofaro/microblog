@@ -5,14 +5,11 @@ from .forms import LoginForm
 from .models import User
 from .oauth import OAuthSignIn
 
-@lm.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
-    user = {'nickname': 'Ed'}  # fake user
+    user = g.user
     posts = [
         {
             'author': {'nickname':'John'},
@@ -70,6 +67,13 @@ def oauth_callback(provider):
         db.session.commit()
     login_user(user, True)
     return redirect(url_for('index'))
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    session.pop('user_id',None)
+    flash('You were successfully signed out.')
+    return redirect(url_for('login'))
 
 @lm.user_loader
 def load_user(id):
