@@ -1,7 +1,8 @@
 from flask import render_template, flash, redirect, session, url_for, request, g, current_app
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 from app import app, db, lm
-from .forms import LoginForm
+from datetime import datetime
+from .forms import LoginForm, EditForm
 from .models import User
 from .oauth import OAuthSignIn
 
@@ -28,6 +29,10 @@ def index():
 @app.before_request
 def before_request():
     g.user = current_user
+    if g.user.is_authenticated:
+        g.user.last_seen = datetime.utcnow()
+        db.session.add(g.user)
+        db.session.commit()
 
 @app.route('/login', methods=['GET', 'POST'])
 #@oid.loginhandler
@@ -74,6 +79,35 @@ def logout():
     session.pop('user_id',None)
     flash('You were successfully signed out.')
     return redirect(url_for('login'))
+
+@app.route('/user/<nickname>')
+@login_required
+def user(nickname):
+    user = User.query.filter_by(nickname=nickname).first()
+    if user == None:
+        flash('User %s not found.' % nickname)
+        return redirect(url_for('index'))
+    posts = [
+        {'author': user, 'body': 'Test Post #1'},
+        {'author': user, 'body': 'Test Post #2'}
+    ]
+    return render_template('user.html', user=user, posts=posts)
+
+@app.route('/edit', methods=['GET', 'POST'])
+@login_required
+def edit():
+    form = EditForm()
+    if form.validate_on_submit():
+        g.user.nickname = form.nickname.data
+        g.user.about_me = form.about_me.data
+        db.session.add(g.user)
+        db.session.commit()
+        flash('Your changes have been saved.')
+        return redirect(url_for('edit'))
+    else:
+        form.nickname.data = g.user.nickname
+        form.about_me.data = g.user.about_me
+    return render_template('edit.html', form=form)
 
 @lm.user_loader
 def load_user(id):
