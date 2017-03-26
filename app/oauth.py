@@ -129,9 +129,9 @@ class GoogleSignIn(OAuthSignIn):
         )
         me = oauth_session.get('').json()
         return (
-            'google$' + me['sub'],
-            me.get('email').split('@')[0],  # Facebook does not provide
-                                            # username, so the email's user
-                                            # is used instead
+            'google$' + me['sub'],  # Google provides a unique per-user value in the "sub"
+                                    # claim of its ID Token
+                                    # https://developers.google.com/identity/protocols/OpenIDConnect
+            me.get('email').split('@')[0],
             me.get('email')
         )
