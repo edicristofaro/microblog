@@ -66,8 +66,9 @@ def oauth_callback(provider):
         flash('Authentication failed.')
         return redirect(url_for('index'))
     user = User.query.filter_by(social_id=social_id).first()
-    if not user:
-        user = User(social_id=social_id, nickname=username, email=email)
+    if user is None:
+        user = User(social_id=social_id, nickname=User.make_unique_nickname(username), email=email)
+        #user.nickname = User.make_unique_nickname(nickname)
         db.session.add(user)
         db.session.commit()
     login_user(user, True)
@@ -112,3 +113,12 @@ def edit():
 @lm.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return render_template('500.html'), 500
