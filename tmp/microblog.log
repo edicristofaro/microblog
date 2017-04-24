@@ -1,0 +1,481 @@
+2017-03-26 10:22:13,911 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:22:43,268 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:22:58,494 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:26:52,676 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:27:05,401 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:27:41,663 ERROR: Exception on /callback/twitter [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 71, in oauth_callback
+    nickname = User.make_unique_nickname(nickname)
+UnboundLocalError: local variable 'nickname' referenced before assignment
+2017-03-26 10:29:42,621 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:29:49,914 ERROR: Exception on /callback/twitter [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 71, in oauth_callback
+    user.nickname = User.make_unique_nickname(nickname)
+NameError: global name 'nickname' is not defined
+2017-03-26 10:31:06,719 ERROR: Exception on /callback/twitter [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 71, in oauth_callback
+    # user.nickname = User.make_unique_nickname(nickname)
+NameError: global name 'nickname' is not defined
+2017-03-26 10:32:22,434 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 10:32:45,041 ERROR: Exception on /callback/twitter [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 70, in oauth_callback
+    user = User(social_id=social_id, nickname=make_unique_nickname(username), email=email)
+NameError: global name 'make_unique_nickname' is not defined
+2017-03-26 10:33:18,101 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:23:05,610 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:23:37,332 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:25:33,894 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:25:40,173 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:27:28,298 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:27:40,171 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:30:00,749 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:30:08,290 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:34:10,049 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:34:18,683 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:36:27,690 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:39:23,734 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:39:34,472 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:40:10,182 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:40:20,438 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:40:27,151 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index2'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:41:07,991 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-03-26 11:42:42,997 ERROR: Exception on /callback/google [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/app/views.py", line 75, in oauth_callback
+    return redirect(url_for('index'))
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/helpers.py", line 323, in url_for
+    force_external=external)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/werkzeug/routing.py", line 1758, in build
+    raise BuildError(endpoint, values, method, self)
+BuildError: Could not build url for endpoint 'index2'. Did you mean 'index' instead?
+2017-03-26 11:42:58,693 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 12:54:00,580 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 12:55:05,814 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:00:41,014 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:02:05,510 ERROR: Exception on /user/dicriseg [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ed/microblog/app/views.py", line 95, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/app/templates/user.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/ed/microblog/app/templates/base.html", line 27, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/ed/microblog/app/templates/user.html", line 7, in block "content"
+    <td><img src="{{user.avatar(128)}}"></td>
+  File "/home/ed/microblog/app/models.py", line 33, in avatar
+    return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+AttributeError: 'NoneType' object has no attribute 'encode'
+2017-04-22 13:02:39,256 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:02:43,604 ERROR: Exception on /user/dicriseg [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ed/microblog/app/views.py", line 95, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/app/templates/user.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/ed/microblog/app/templates/base.html", line 27, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/ed/microblog/app/templates/user.html", line 7, in block "content"
+    <td><img src="{{user.avatar(128)}}"></td>
+  File "/home/ed/microblog/app/models.py", line 33, in avatar
+    return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+AttributeError: 'NoneType' object has no attribute 'encode'
+2017-04-22 13:03:19,634 ERROR: Exception on /user/dicriseg [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ed/microblog/app/views.py", line 95, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/app/templates/user.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/ed/microblog/app/templates/base.html", line 27, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/ed/microblog/app/templates/user.html", line 7, in block "content"
+    <td><img src="{{user.avatar(128)}}"></td>
+  File "/home/ed/microblog/app/models.py", line 33, in avatar
+    return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+AttributeError: 'NoneType' object has no attribute 'encode'
+2017-04-22 13:03:20,950 ERROR: Exception on /user/dicriseg [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ed/microblog/app/views.py", line 95, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/app/templates/user.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/ed/microblog/app/templates/base.html", line 27, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/ed/microblog/app/templates/user.html", line 7, in block "content"
+    <td><img src="{{user.avatar(128)}}"></td>
+  File "/home/ed/microblog/app/models.py", line 33, in avatar
+    return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+AttributeError: 'NoneType' object has no attribute 'encode'
+2017-04-22 13:03:21,550 ERROR: Exception on /user/dicriseg [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ed/microblog/app/views.py", line 95, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/app/templates/user.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/ed/microblog/app/templates/base.html", line 27, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/ed/microblog/app/templates/user.html", line 7, in block "content"
+    <td><img src="{{user.avatar(128)}}"></td>
+  File "/home/ed/microblog/app/models.py", line 33, in avatar
+    return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+AttributeError: 'NoneType' object has no attribute 'encode'
+2017-04-22 13:03:30,663 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:03:34,093 ERROR: Exception on /user/dicriseg [GET] [in /home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ed/microblog/app/views.py", line 95, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ed/microblog/flask/lib/python2.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ed/microblog/app/templates/user.html", line 2, in top-level template code
+    {% extends "base.html" %}
+  File "/home/ed/microblog/app/templates/base.html", line 27, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/ed/microblog/app/templates/user.html", line 7, in block "content"
+    <td><img src="{{user.avatar(128)}}"></td>
+  File "/home/ed/microblog/app/models.py", line 33, in avatar
+    return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+AttributeError: 'NoneType' object has no attribute 'encode'
+2017-04-22 13:03:50,524 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:03:50,745 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:07:00,662 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-22 13:07:00,850 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:02:21,465 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:02:21,600 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:07:42,283 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:07:42,418 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:11:38,345 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:18:15,593 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:18:47,494 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:18:47,651 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:19:10,242 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:19:16,242 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-23 12:19:16,378 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
