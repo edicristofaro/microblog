@@ -479,3 +479,7 @@ AttributeError: 'NoneType' object has no attribute 'encode'
 2017-04-23 12:19:10,242 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
 2017-04-23 12:19:16,242 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
 2017-04-23 12:19:16,378 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-24 08:40:04,683 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-24 08:40:24,459 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-24 08:40:24,607 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]
+2017-04-24 08:54:27,098 INFO: microblog startup [in /home/ed/microblog/app/__init__.py:33]

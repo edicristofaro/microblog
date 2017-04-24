@@ -94,8 +94,8 @@ class TwitterSignIn(OAuthSignIn):
         me = oauth_session.get('account/verify_credentials.json').json()
         social_id = 'twitter$' + str(me.get('id'))
         username = me.get('screen_name')
-        email = social_id # Twitter does not provide email, let's hold something unique
-        return social_id, username, email   
+        email = social_id # Twitter does not provide email without some additional work, let's hold something unique for now
+        return social_id, username, email
 
 class GoogleSignIn(OAuthSignIn):
     def __init__(self):
