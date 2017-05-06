@@ -5,6 +5,7 @@ from datetime import datetime
 from .forms import LoginForm, EditForm, PostForm, SearchForm
 from .models import User, Post
 from .oauth import OAuthSignIn
+from .emails import follower_notification
 from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
 
 @app.route('/', methods=['GET', 'POST'])
@@ -130,6 +131,8 @@ def follow(nickname):
     db.session.add(u)
     db.session.commit()
     flash('You are now following ' + nickname + '!')
+    follower_notification(user, g.user)
+    # TODO: Check for a properly formed email address
     return redirect(url_for('user', nickname=nickname))
 
 @app.route('/unfollow/<nickname>')
