@@ -10,6 +10,7 @@
     <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/moment.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -23,10 +24,10 @@
           </a>
           <a class="navbar-header navbar-brand" href="/">microblog</a>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+              <li class="active"><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
               {% if g.user.is_authenticated %}
-              <li><a href="{{ url_for('user', nickname=g.user.nickname) }}">Your Profile</a></li>
-              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+              <li><a href="{{ url_for('user', nickname=g.user.nickname) }}">{{ _('Your Profile') }}</a></li>
+              <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
               {% endif %}
             </ul>
           <div class="nav-collapse">
