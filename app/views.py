@@ -41,7 +41,7 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()
         g.search_form = SearchForm()
-    g.locale = get_locale()
+    g.locale = 'it' #get_locale()
 
 @app.route('/login', methods=['GET', 'POST'])
 #@oid.loginhandler
