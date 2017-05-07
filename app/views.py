@@ -1,12 +1,17 @@
 from flask import render_template, flash, redirect, session, url_for, request, g, current_app
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
-from app import app, db, lm
+from flask_babel import gettext
+from app import app, db, lm, babel
 from datetime import datetime
 from .forms import LoginForm, EditForm, PostForm, SearchForm
 from .models import User, Post
 from .oauth import OAuthSignIn
 from .emails import follower_notification
-from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
+from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(LANGUAGES.keys())
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -36,7 +41,8 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()
         g.search_form = SearchForm()
-
+    g.locale = get_locale()
+    
 @app.route('/login', methods=['GET', 'POST'])
 #@oid.loginhandler
 def login():
@@ -66,11 +72,11 @@ def oauth_callback(provider):
     oauth = OAuthSignIn.get_provider(provider)
     social_id, username, email = oauth.callback()
     if social_id is None:
-        flash('Authentication failed.')
+        flash(gettext('Authentication failed.'))
         return redirect(url_for('index'))
     user = User.query.filter_by(social_id=social_id).first()
     if user is None:
-        user = User(social_id=social_id, nickname=User.make_unique_nickname(username), email=email)
+        user = User(social_id=social_id, nickname=User.make_unique_nickname(User.make_valid_nickname(username)), email=email)
         #user.nickname = User.make_unique_nickname(nickname)
         db.session.add(user)
         db.session.commit()

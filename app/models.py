@@ -2,6 +2,7 @@ from app import app, db
 from hashlib import md5
 from flask_login import UserMixin
 import sys
+import re
 
 if sys.version_info >= (3, 0):
     enable_search = False
@@ -64,6 +65,10 @@ class User(UserMixin, db.Model):
                 break
             version += 1
         return new_nickname
+
+    @staticmethod
+    def make_valid_nickname(nickname):
+        return re.sub('[^a-zA-Z0-9_\.]', '', nickname)
 
     def follow(self, user):
         if not self.is_following(user):
