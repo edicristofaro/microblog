@@ -42,7 +42,7 @@ def before_request():
         db.session.commit()
         g.search_form = SearchForm()
     g.locale = get_locale()
-
+    
 @app.route('/login', methods=['GET', 'POST'])
 #@oid.loginhandler
 def login():
