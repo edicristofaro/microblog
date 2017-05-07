@@ -15,6 +15,3 @@ class momentjs(object):
 
     def fromNow(self):
         return self.render("fromNow()")
-
-    def setLocale(self, locale):
-        return Markup("<script>moment.locale(\'%s\')</script>" % locale)

@@ -4,8 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin
 from flask_mail import Mail
-from flask_babel import Babel, lazy_gettext
-from flask.json import JSONEncoder
+from flask_babel import Babel
 from .momentjs import momentjs
 from config import basedir, ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 
@@ -21,22 +20,6 @@ app.jinja_env.globals['momentjs'] = momentjs
 
 lm = LoginManager(app)
 lm.login_view = 'login'
-lm.login_message = lazy_gettext('Please log in to access this page.')
-
-
-class CustomJSONEncoder(JSONEncoder):
-    """This class adds support for lazy translation texts to Flask's
-    JSON encoder. This is necessary when flashing translated texts."""
-    def default(self, obj):
-        from speaklater import is_lazy_string
-        if is_lazy_string(obj):
-            try:
-                return unicode(obj)  # python 2
-            except NameError:
-                return str(obj)  # python 3
-        return super(CustomJSONEncoder, self).default(obj)
-
-app.json_encoder = CustomJSONEncoder
 
 if not app.debug:
     import logging
