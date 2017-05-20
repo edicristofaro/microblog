@@ -14,8 +14,27 @@
     <script src="/static/js/moment.min.js"></script>
     {% else %}
     <script src="/static/js/moment-with-locales.min.js"></script>
-    {{ momentjs(user.last_seen).setLocale(g.locale) }}
+    {{ momentjs(None).setLocale(g.locale) }}
     {% endif %}
+    <script>
+      function translate(sourceLang, destLang, sourceId, destId, loadingId) {
+          $(destId).hide();
+          $(loadingId).show();
+          $.post('/translate', {
+              text: $(sourceId).text(),
+              sourceLang: sourceLang,
+              destLang: destLang
+          }).done(function(translated) {
+              $(destId).text(translated['text'])
+              $(loadingId).hide();
+              $(destId).show();
+          }).fail(function() {
+              $(destId).text("{{ _('Error: Could not contact server.') }}");
+              $(loadingId).hide();
+              $(destId).show();
+          });
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>

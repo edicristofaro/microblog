@@ -1,16 +1,19 @@
-from flask import render_template, flash, redirect, session, url_for, request, g, current_app
+from flask import render_template, flash, redirect, session, url_for, request, g, current_app, jsonify
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 from flask_babel import gettext
+from guess_language import guessLanguage
 from app import app, db, lm, babel
 from datetime import datetime
 from .forms import LoginForm, EditForm, PostForm, SearchForm
 from .models import User, Post
 from .oauth import OAuthSignIn
 from .emails import follower_notification
+from .translate import microsoft_translate
 from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES
 
 @babel.localeselector
 def get_locale():
+    #return 'it' 
     return request.accept_languages.best_match(LANGUAGES.keys())
 
 @app.route('/', methods=['GET', 'POST'])
@@ -21,7 +24,14 @@ def index(page=1):
     user = g.user
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, timestamp=datetime.utcnow(), author=user)
+        language = g.locale
+        # language = guessLanguage(form.post.data)
+        # if language == 'UNKNOWN' or len(language) > 5:
+        #     language = ''
+        post = Post(body=form.post.data,
+                    timestamp=datetime.utcnow(),
+                    author=user,
+                    language=language)
         db.session.add(post)
         db.session.commit()
         flash('Your post is now live!')
@@ -42,7 +52,7 @@ def before_request():
         db.session.commit()
         g.search_form = SearchForm()
     g.locale = get_locale()
-    
+
 @app.route('/login', methods=['GET', 'POST'])
 #@oid.loginhandler
 def login():
@@ -175,6 +185,15 @@ def search_results(query):
     return render_template('search_results.html',
                            query=query,
                            results=results)
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate():
+    return jsonify({
+        'text': microsoft_translate(
+            request.form['text'],
+            request.form['sourceLang'],
+            request.form['destLang']) })
 
 @lm.user_loader
 def load_user(id):
