@@ -1,13 +1,5 @@
-try:
-    import httplib  # Python 2
-except ImportError:
-    import http.client as httplib  # Python 3
-try:
-    from urllib import urlencode  # Python 2
-except ImportError:
-    from urllib.parse import urlencode  # Python 3
+import requests
 import json
-from xml.etree import ElementTree
 from flask_babel import gettext
 from config import MS_TRANSLATOR_CLIENT_SECRET
 
@@ -16,27 +8,20 @@ def microsoft_translate(text, sourceLang, destLang):
        return gettext('Error: translation service not configured.')
     try:
         # get access token
-        token_service_url = 'api.cognitive.microsoft.com'
+        token_service_url = 'https://api.cognitive.microsoft.com'
         request_headers = {'Ocp-Apim-Subscription-Key': MS_TRANSLATOR_CLIENT_SECRET}
-        conn = httplib.HTTPSConnection(token_service_url)
-        conn.request('POST', '/sts/v1.0/issueToken', headers=request_headers)
-        response = conn.getresponse()
-        #response.raise_for_status()
-        #print(response.read())
-        token = response.read()
-        #print(token)
+        response = requests.post(token_service_url + '/sts/v1.0/issueToken', headers=request_headers)
+        response.raise_for_status()
+        token = response.content
 
         # translate
-        conn = httplib.HTTPSConnection('api.microsofttranslator.com')
+        translate_service_url = 'https://api.microsofttranslator.com'
         request_headers = {"Authorization ": 'Bearer ' + token}
-        #print(request_headers)
-        params = {'from': sourceLang,
+        params = {#'from': sourceLang, #optional parameter
                   'to': destLang,
                   'text': text.encode("utf-8")}
-        conn.request("GET", '/V2/Ajax.svc/Translate?' + urlencode(params), headers=request_headers)
-        response = conn.getresponse().read().decode('utf-8')
-        #print(response)
-        return response #["response"]
+        response = requests.get(translate_service_url + '/V2/Ajax.svc/Translate',params=params, headers=request_headers)
+        return response.content #["response"]
 
     except:
-        return gettext('Error: Unexpected error.')
+       return gettext('Error: Unexpected error.')
