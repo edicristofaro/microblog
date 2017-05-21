@@ -51,7 +51,7 @@ class User(UserMixin, db.Model):
     def avatar(self,size):
             return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return '<User %r>' % (self.nickname)
 
     @staticmethod
@@ -95,7 +95,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     language = db.Column(db.String(5))
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return '<Post %r>' % (self.body)
 
 if enable_search:

@@ -269,3 +269,27 @@ class Numbers(SimpleRepr):
         if other == 0:
             return self
         return NotImplemented
+
+
+def should_fail_under(total, fail_under):
+    """Determine if a total should fail due to fail-under.
+
+    `total` is a float, the coverage measurement total. `fail_under` is the
+    fail_under setting to compare with.
+
+    Returns True if the total should fail.
+
+    """
+    # The fail_under option defaults to 0.
+    if fail_under:
+        # Total needs to be rounded, but don't want to report 100
+        # unless it is really 100.
+        if 99 < total < 100:
+            total = 99
+        else:
+            total = round(total)
+
+        if total < fail_under:
+            return True
+
+    return False

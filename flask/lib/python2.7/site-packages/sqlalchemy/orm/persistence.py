@@ -994,8 +994,12 @@ def _finalize_insert_update_commands(base_mapper, uowtransaction, states):
         toload_now = []
 
         if base_mapper.eager_defaults:
-            toload_now.extend(state._unloaded_non_object)
-        elif mapper.version_id_col is not None and \
+            toload_now.extend(
+                state._unloaded_non_object.intersection(
+                    mapper._server_default_plus_onupdate_propkeys)
+            )
+
+        if mapper.version_id_col is not None and \
                 mapper.version_id_generator is False:
             if mapper._version_id_prop.key in state.unloaded:
                 toload_now.extend([mapper._version_id_prop.key])
@@ -1003,7 +1007,7 @@ def _finalize_insert_update_commands(base_mapper, uowtransaction, states):
         if toload_now:
             state.key = base_mapper._identity_key_from_state(state)
             loading.load_on_ident(
-                uowtransaction.session.query(base_mapper),
+                uowtransaction.session.query(mapper),
                 state.key, refresh_state=state,
                 only_load_props=toload_now)
 
@@ -1040,9 +1044,16 @@ def _postfetch(mapper, uowtransaction, table,
                 # distinctly, don't step on the values here
                 if col.primary_key and result.context.isinsert:
                     continue
-                dict_[mapper._columntoproperty[col].key] = row[col]
-                if refresh_flush:
-                    load_evt_attrs.append(mapper._columntoproperty[col].key)
+
+                # note that columns can be in the "return defaults" that are
+                # not mapped to this mapper, typically because they are
+                # "excluded", which can be specified directly or also occurs
+                # when using declarative w/ single table inheritance
+                prop = mapper._columntoproperty.get(col)
+                if prop:
+                    dict_[prop.key] = row[col]
+                    if refresh_flush:
+                        load_evt_attrs.append(prop.key)
 
     for c in prefetch_cols:
         if c.key in params and c in mapper._columntoproperty:
